@@ -33,9 +33,8 @@ Try to rebuild a parsed Tree with lexicalized feature
       )
       (. .)
     )
-  
-  
-  -Output: lexicalized tree. Ex:
+   
+   -Output: lexicalized tree. Ex:
     
     (S(hit)
       (NP(I) (NN(I) I))
@@ -44,3 +43,16 @@ Try to rebuild a parsed Tree with lexicalized feature
       )
       (.(.) .)
     )
+    
+In First Attempt, try to apply Collins head-rules for NP, and others( I still don't understand clearly enough to apply Collins head-rules for coordinated phrases ). The __head__ function in FirstAttempt is used to do that job, however, still doesn't have ability to apply for productions having rhs is Terminal (Ex: NN -> 'eggs') . That why I created __head__v2
+
+
+In Second Attempt, you can use nltk.tree.Tree as a standard tree. However, nltk Tree don't have variable for _label. So I think it is be a perfect change for you to pratice to create your own tree for NLP parsing. I use nltk.tree.Tree as my reference for class Tree (especially function __fromstring__) with a little different from the orginal.
+
+Futher Attempt: 
+
+   a/ My function only use for each sentence. Not be able to process with file have a lot of sentences. I will try to interact with file rather than speciffic sentence.
+
+  b/ Binarize and Lexicalized tree are important skills for NLP parsers. I will try to combine Binarize and Lexicalized data before experiment with parsing methods
+  
+  
